@@ -7,11 +7,9 @@ Deploy:        Push to GitHub → connect to Streamlit Cloud (share.streamlit.io
 """
 
 import os
-import json
 from typing import Optional
 import anthropic
 import streamlit as st
-from portkey_ai import createHeaders, PORTKEY_GATEWAY_URL
 
 from menu_loader import load_menu, load_analytics
 from system_prompt import build_system_prompt
@@ -73,54 +71,28 @@ def get_menu_data(extra_scores: Optional[dict] = None):
     )
 
 
-# ── Portkey client factory ────────────────────────────────────────────────────
-def make_client(portkey_api_key: str, provider_slug: str) -> anthropic.Anthropic:
-    """
-    Build an Anthropic SDK client routed through Portkey gateway.
-    provider_slug is the Model Catalog slug (e.g. @anthropic-prod).
-    """
-    return anthropic.Anthropic(
-        api_key="portkey",           # placeholder — auth handled by Portkey headers
-        base_url=PORTKEY_GATEWAY_URL,
-        default_headers=createHeaders(
-            api_key=portkey_api_key,
-            provider=provider_slug,
-            metadata={
-                "app": "Q-Assistant",
-                "restaurant": RX_NAME,
-                "_user": st.session_state.get("tester_name", "anonymous"),
-            },
-        ),
-    )
+def make_client(api_key: str) -> anthropic.Anthropic:
+    return anthropic.Anthropic(api_key=api_key)
 
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### ⚙️ Configuration")
 
-    # Portkey credentials
-    portkey_api_key = st.text_input(
-        "Portkey API Key",
-        type="password",
-        value=os.environ.get("PORTKEY_API_KEY", st.secrets.get("PORTKEY_API_KEY", "")),
-        placeholder="pk-...",
-        help="Your Portkey workspace API key (app.portkey.ai → API Keys)",
-    )
-    virtual_key = st.text_input(
-        "Portkey Provider Slug",
-        type="password",
-        value=os.environ.get("PORTKEY_VIRTUAL_KEY", st.secrets.get("PORTKEY_VIRTUAL_KEY", "")),
-        placeholder="@anthropic-prod",
-        help="Model Catalog slug from app.portkey.ai → Model Catalog → Add Provider → Anthropic",
-    )
+    # Auto-load key from Streamlit Cloud secrets or env; fallback to manual input
+    _secret_key = st.secrets.get("ANTHROPIC_API_KEY", "") or os.environ.get("ANTHROPIC_API_KEY", "")
+    if _secret_key:
+        api_key_input = _secret_key
+        st.success("✅ API key loaded", icon="🔑")
+    else:
+        api_key_input = st.text_input(
+            "Anthropic API Key",
+            type="password",
+            placeholder="sk-ant-...",
+            help="Only needed locally — on Streamlit Cloud this is set as a secret.",
+        )
 
-    tester_name = st.text_input(
-        "Your name (optional)",
-        placeholder="e.g. Chaitanya",
-        help="Tagged in Portkey logs so you can filter by tester",
-    )
-    if tester_name:
-        st.session_state["tester_name"] = tester_name
+    tester_name = st.text_input("Your name (optional)", placeholder="e.g. Rahul")
 
     st.divider()
 
@@ -184,26 +156,8 @@ st.markdown(
 
 
 # ── Credential validation ─────────────────────────────────────────────────────
-if not portkey_api_key or not virtual_key:
-    st.info(
-        "👈 Enter your **Portkey API Key** and **Provider Slug** in the sidebar to start.",
-        icon="🔑",
-    )
-    with st.expander("How to set this up"):
-        st.markdown(
-            """
-            1. Go to **[app.portkey.ai](https://app.portkey.ai)**
-            2. **Settings → API Keys** → copy your workspace API key → paste as *Portkey API Key*
-            3. **Model Catalog → Add Provider** → select **Anthropic** → paste your Anthropic API key → name it (e.g. `anthropic-prod`) → Save
-            4. Your provider slug is `@anthropic-prod` → paste as *Provider Slug*
-
-            **For Streamlit Cloud** (so colleagues need no keys):
-            ```toml
-            PORTKEY_API_KEY     = "pk-..."
-            PORTKEY_VIRTUAL_KEY = "@anthropic-prod"
-            ```
-            """
-        )
+if not api_key_input:
+    st.info("👈 Enter your **Anthropic API key** in the sidebar to start.", icon="🔑")
     st.stop()
 
 
@@ -242,7 +196,7 @@ if user_input:
     system_prompt = build_system_prompt(menu_data, rx_name=RX_NAME)
     api_messages  = [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
 
-    client = make_client(portkey_api_key, virtual_key)
+    client = make_client(api_key_input)
 
     with st.chat_message("assistant", avatar="🍽️"):
         placeholder   = st.empty()
