@@ -80,7 +80,7 @@ def make_client(portkey_api_key: str) -> OpenAI:
         base_url=PORTKEY_GATEWAY_URL,
         default_headers=createHeaders(
             api_key=portkey_api_key,
-            provider=PROVIDER_SLUG,
+            virtual_key=PROVIDER_SLUG,
             metadata={
                 "app": "Q-Assistant",
                 "restaurant": RX_NAME,
