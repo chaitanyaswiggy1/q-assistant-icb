@@ -1,0 +1,539 @@
+Item ID,Item Name,Category,Price (INR),Type,Spice Level,No. of Users Ordered,No. of Times Ordered,Most Co-Ordered With
+19,Crispy Chilli Corn,Bar Nibbles,289,Veg,-,1612,1684,Periperi French Fries
+8,Periperi French Fries,Bar Nibbles,249,Veg,-,1525,1592,Crispy Chilli Corn
+12,Loaded Nachos,Small Plates,319,Veg,-,1518,1575,Periperi French Fries
+770,Aamrit,Mocktail,295,Veg,-,1472,1528,Crispy Chilli Corn
+3,Peanut Masala,Bar Nibbles,219,Veg,-,1377,1456,Periperi French Fries
+16,Chicken Popcorn,Bar Nibbles,329,Non-Veg,-,1181,1235,Periperi French Fries
+15,Chilli Egg,Bar Nibbles,269,Non-Veg,-,1030,1075,Crispy Chilli Corn
+527,Golden Kick,,0,-,-,1020,1046,Aamrit
+132,Cheese Poppers,Bar Nibbles,289,Veg,-,1018,1044,Aamrit
+34,Spicy Chicken Skewer,Bar Nibbles,399,Non-Veg,-,909,943,Crispy Chilli Corn
+276,Fresh Lime Soda,Soft Beverages,150,-,-,909,936,Aamrit
+23,Chilli Paneer,Small Plates,349,Veg,-,875,903,Crispy Chilli Corn
+7,Crispy Onion Rings,Bar Nibbles,249,Veg,-,855,880,Peanut Masala
+524,Zero Mojito,Mocktail,229,-,-,809,839,Aamrit
+460,Happy Weizen (500Ml),Craft Beer,289,-,-,779,832,Peanut Masala
+456,Wit Maga (500Ml),Craft Beer,299,-,-,772,815,Crispy Chilli Corn
+10,French Fries Salted,Bar Nibbles,239,Veg,-,773,810,Crispy Chilli Corn
+291,Chilli Chicken,Small Plates,349,Non-Veg,-,781,807,Crispy Chilli Corn
+18,Shrimp Popcorn,Bar Nibbles,419,Non-Veg,-,775,805,Aamrit
+1053,Avocado Roll,Sushi,0,Veg,-,738,756,Loaded Nachos
+283,Tres Leches,Dessert,299,Non-Veg,-,678,688,Aamrit
+458,Wit Maga Sampler (90Ml),Craft Beer,60,-,-,635,654,Happy Weizen Sampler (90Ml)
+705,Malgudi Ale Sampler ( 90Ml ),,0,-,-,624,650,Wit Maga Sampler (90Ml)
+525,Zero Pina Colada,,0,-,-,627,638,Aamrit
+13,Masala Papad,Bar Nibbles,149,Veg,-,593,624,Crispy Chilli Corn
+108,Garlic Bread With Cheese,Sides & Add Ons,169,Veg,-,597,619,Loaded Nachos
+33,Mangalorean Chicken Ghee Roast,Small Plates,419,Non-Veg,-,597,614,Aamrit
+85,Seasonal Vegetable Pizza,Pizza,449,Veg,-,591,601,Loaded Nachos
+29,Crispy Lotus Stem,Small Plates,359,Veg,-,583,594,Aamrit
+4,Indo-Chinese Bhel,Bar Nibbles,239,Veg,-,554,570,Peanut Masala
+466,El Chamraj Sampler (90Ml),Craft Beer,60,-,-,554,567,Wit Maga Sampler (90Ml)
+474,Nandi Nectar Sampler (90Ml),Craft Beer,60,-,-,549,565,El Chamraj Sampler (90Ml)
+5,Stuffed Mushrooms,From The Clay Oven,309,Veg,-,544,561,Loaded Nachos
+426,Chilli Coriander Fish,Small Plates,339,Non-Veg,-,532,556,Aamrit
+427,Can Coke,Soft Beverages,119,-,-,522,547,Periperi French Fries
+133,Vegetable Spring Roll,Small Plates,219,Veg,-,526,542,Aamrit
+703,Malgudi Ale ( 500Ml ),,0,-,-,503,542,Periperi French Fries
+462,Happy Weizen Sampler (90Ml),Craft Beer,60,-,-,523,541,Wit Maga Sampler (90Ml)
+478,Ale Is Well Sampler (90Ml),Craft Beer,60,-,-,512,530,Wit Maga Sampler (90Ml)
+726,Fried Dhai Kebab,Small Plates,269,Veg,-,514,524,Aamrit
+284,Brownie With Vanilla Ice Cream,Dessert,299,Non-Veg,-,498,506,Aamrit
+78,Mixed Mushroom & Creamcheese Dumpling,"Momos, Dimsum & Bao",389,Veg,-,476,499,Loaded Nachos
+455,Wit Maga (250Ml),Craft Beer,199,-,-,485,498,Wit Maga (500Ml)
+440,Banjara Murgh Tikka,From The Clay Oven,389,Non-Veg,-,477,492,Aamrit
+66,Tandoori Chicken Wings,From The Clay Oven,369,Non-Veg,-,478,490,Aamrit
+779,Huli Gun Ale Sampler ( 90Ml ),Craft Beer,60,-,-,473,489,Malgudi Ale Sampler ( 90Ml )
+482,Rassela Cider  Sampler (90Ml),Craft Beer,60,-,-,465,477,Malgudi Ale Sampler ( 90Ml )
+735,Butter Garlic Prawns,Small Plates,579,Non-Veg,-,455,467,Aamrit
+777,Huli Gun Ale ( 500Ml ),Craft Beer,389,-,-,427,464,Peanut Masala
+977,Tandoori Chicken Lollypops,From The Clay Oven,359,Non-Veg,-,450,462,Aamrit
+619,Southern Fried Chicken,Small Plates,299,Non-Veg,-,444,456,Periperi French Fries
+729,Pepper Fry Chicken,Small Plates,359,Non-Veg,Medium Spicy,448,455,Periperi French Fries
+121,Angaar Murgh Tikka,From The Clay Oven,369,Non-Veg,-,437,452,Crispy Chilli Corn
+74,Chicken Momo,"Momos, Dimsum & Bao",269,Non-Veg,-,439,451,Chicken Popcorn
+420,Water Bottle 750Ml,Soft Beverages,129,Veg,-,415,445,Crispy Chilli Corn
+459,Happy Weizen (250Ml),Craft Beer,199,-,-,423,435,Peanut Masala
+476,Ale Is Well (500Ml),Craft Beer,349,-,-,392,424,Peanut Masala
+9,Gun Powder French Fries,Bar Nibbles,229,Veg,-,411,422,Crispy Chilli Corn
+531,Peach Iced Tea,Iced Tea,295,-,-,412,422,Aamrit
+49,Chilli Prawns,Small Plates,479,Non-Veg,-,411,421,Aamrit
+62,Ajwaini Fish Tikka,From The Clay Oven,459,Non-Veg,Medium Spicy,400,414,Crispy Chilli Corn
+702,Malgudi Ale ( 250Ml ),,0,-,-,393,405,Peanut Masala
+967,Mushroom Salt N Pepper,Small Plates,299,Veg,-,381,395,Crispy Chilli Corn
+128,Chicken Dum Biriyani,Large Plates - South Indian,389,Non-Veg,Very Spicy,386,392,Aamrit
+472,Nandi Nectar (500Ml),Craft Beer,329,-,-,362,391,Periperi French Fries
+490,Rowdy Stout Sampler(90Ml),Craft Beer,60,-,-,377,389,Malgudi Ale Sampler ( 90Ml )
+722,Pahadi Paneer Tikka,Small Plates,419,Veg,-,378,383,Aamrit
+290,Tiramisu,Dessert,379,Non-Veg,-,373,379,Aamrit
+61,Icb Paneer Tikka,From The Clay Oven,389,Veg,-,366,378,Crispy Chilli Corn
+486,Red Raja Sampler (90Ml),Craft Beer,60,-,-,361,373,Ale Is Well Sampler (90Ml)
+464,El Chamraj (500Ml),Craft Beer,299,-,-,358,371,Happy Weizen (500Ml)
+116,Curry Leaf Chicken Tikka,From The Clay Oven,389,Non-Veg,Medium Spicy,363,370,Crispy Chilli Corn
+529,Masala Mule,Mocktail,295,-,-,354,361,Aamrit
+80,Charcoal Chicken Dumpling,,0,-,-,345,355,Aamrit
+278,Diet Coke,Soft Beverages,129,-,-,343,351,Periperi French Fries
+81,Chicken Gyoza,"Momos, Dimsum & Bao",349,Non-Veg,-,337,347,Aamrit
+526,Melon Mingle,Mocktail,295,-,-,342,347,Aamrit
+727,Mushroom Cheese Cigar,Small Plates,349,Veg,Very Spicy,335,345,Aamrit
+528,Glow Up,Mocktail,295,-,-,332,340,Aamrit
+514,Liit,(High Abv) Contains 100 Ml Alcohol,699,-,-,327,338,Periperi French Fries
+84,Margherita Pizza,Pizza,429,Veg,-,322,338,Periperi French Fries
+981,Paneer Tikka Pizza,Pizza,549,Veg,-,323,332,Aamrit
+39,Pepper Mutton,Small Plates,639,Non-Veg,-,315,324,Aamrit
+457,Wit Maga (Pitcher),Craft Beer,849,-,-,307,323,Peanut Masala
+421,Ginger Ale,Soft Beverages,129,-,-,310,321,Loaded Nachos
+471,Nandi Nectar (250Ml),Craft Beer,199,-,-,310,320,Malgudi Ale ( 250Ml )
+46,Beer Batter Fish,Small Plates,379,Non-Veg,-,309,317,Aamrit
+21,Sago Vada,Small Plates,219,Veg,-,296,317,Crispy Chilli Corn
+101,Spaghetti Aglio E Olio,Pasta & Grills,359,Veg,-,301,309,Periperi French Fries
+530,Lemon Iced Tea,Iced Tea,295,-,-,305,309,Aamrit
+463,El Chamraj (250Ml),Craft Beer,199,-,-,299,305,Happy Weizen (250Ml)
+100,Mac N Cheese,Pasta & Grills,419,Veg,-,298,302,Aamrit
+968,Street Fried Chicken Kebab,Small Plates,329,Non-Veg,-,286,299,Periperi French Fries
+47,Curry Leaf Prawns,Small Plates,499,-,-,283,292,Aamrit
+72,Paneer Momo,"Momos, Dimsum & Bao",239,Veg,-,280,286,Aamrit
+461,Happy Weizen (Pitcher),Craft Beer,829,-,-,271,285,Peanut Masala
+965,Paprika Grilled Chicken Salad,Salads & Burger,349,Non-Veg,-,277,281,Aamrit
+73,Vegetable Momo,"Momos, Dimsum & Bao",239,Veg,-,275,281,Loaded Nachos
+480,Rassela Cider  (500Ml),Craft Beer,289,-,-,254,279,Rassela Cider  Sampler (90Ml)
+1070,Chicken Yakitori,Sushi,549,Non-Veg,-,266,274,Crispy Chilli Corn
+969,Bbq Chicken Wings,Small Plates,399,Non-Veg,-,268,274,Aamrit
+79,Asparagus & Waterchestnut,"Momos, Dimsum & Bao",319,Veg,-,265,270,Loaded Nachos
+730,Spicy Chicken Lolly Pops,Small Plates,439,Non-Veg,Very Spicy,263,269,Aamrit
+982,Bbq Chicken Pizza,Pizza,579,Non-Veg,-,264,269,Aamrit
+17,Haleem Samosa,Bar Nibbles,389,Non-Veg,-,261,265,Crispy Chilli Corn
+504,Soma,Signature Cocktails,499,-,-,252,259,Loaded Nachos
+425,Chilli Pork,Small Plates,449,Non-Veg,-,247,259,Aamrit
+978,Tandoori Prawns,From The Clay Oven,519,Non-Veg,-,251,257,Aamrit
+704,Malgudi Ale ( Pitcher ),,0,-,-,242,257,Peanut Masala
+725,Street Style Fried Baby Corn,Small Plates,269,Veg,-,249,255,Aamrit
+102,Penne Pomodoro,Pasta & Grills,369,Veg,-,247,255,Aamrit
+103,Pesto Penne,Pasta & Grills,369,Veg,-,249,254,Loaded Nachos
+1005,Burn Garlic Fried Rice -Veg,Pan Asian,299,Veg,-,247,250,Crispy Chilli Corn
+732,Andhra Chilly Chicken,Small Plates,339,Non-Veg,Medium Spicy,240,248,Periperi French Fries
+1056,California Roll,Sushi,0,Non-Veg,-,244,247,Shrimp Popcorn
+11,Potato Wedges,Sharing Plates,219,Veg,-,238,246,Aamrit
+976,Corn Seekh Kebab,From The Clay Oven,329,Veg,-,244,246,Aamrit
+1068,Chicken Karrage,Sushi,499,Non-Veg,-,236,242,Shrimp Popcorn
+778,Huli Gun Ale ( Pitcher ),Craft Beer,999,-,-,218,239,Peanut Masala
+93,Chicken Tikka Pizza,Pizza,529,Non-Veg,-,229,237,Periperi French Fries
+532,Strawberry Iced Tea,Iced Tea,295,-,-,229,233,Aamrit
+433,Icb Chicken Butter Masala Served With Butter Garlic Naan,Large Plates - North Indian,489,Non-Veg,-,231,233,Aamrit
+28,Sundal Hummus,Small Plates,199,Veg,-,228,233,Peanut Masala
+479,Rassela Cider  (250Ml),Craft Beer,199,-,-,222,231,Rassela Cider  Sampler (90Ml)
+288,Creme Brulee,Dessert,299,Non-Veg,-,225,230,Tres Leches
+541,Paneer Butter Masala Served With Butter Naan,Large Plates - North Indian,469,Veg,-,221,224,Fresh Lime Soda
+88,Four Cheese Pizza,Pizza,429,Veg,-,210,220,Aamrit
+507,Mojito,Classic Cocktail,529,-,-,211,219,Periperi French Fries
+734,Chettinad Tawa Seer Fish,Small Plates,519,Non-Veg,-,209,214,Aamrit
+287,Basque Cheese Cake With Strawberry Coulie,Dessert,409,Non-Veg,-,208,212,Aamrit
+963,Avocado & Orange Salad,Salads & Burger,349,Veg,-,205,211,Peanut Masala
+508,Pina Colada,,0,-,-,203,208,Loaded Nachos
+488,Rowdy Stout (500Ml),Craft Beer,329,-,-,193,207,Crispy Chilli Corn
+35,Kheema Pav,Small Plates,499,Non-Veg,-,197,207,Loaded Nachos
+776,Huli Gun Ale ( 250Ml ),Craft Beer,219,-,-,203,204,Malgudi Ale ( 250Ml )
+475,Ale Is Well (250Ml),Craft Beer,199,-,-,197,203,Wit Maga (250Ml)
+107,Garlic Bread,Sides & Add Ons,109,Veg,-,194,200,Periperi French Fries
+71,Prawn Tempura,Sushi,699,Non-Veg,-,197,199,Aamrit
+285,Sticky Date Pudding With Vanilla Ice Cream,Dessert,299,Non-Veg,-,198,198,Tres Leches
+442,"Vegetable Thai Green Curry, Jasmine Rice",Pan Asian,519,Veg,-,192,197,Avocado Roll
+123,Donne Lamb Biryani,Large Plates - South Indian,559,Non-Veg,-,188,191,Aamrit
+1052,Tanuki Roll,Sushi,0,Veg,-,175,182,Periperi French Fries
+499,Kanak,Classic Cocktail,699,-,-,177,182,Loaded Nachos
+89,Pesto Chicken Pizza,Pizza,559,Non-Veg,-,178,180,Loaded Nachos
+428,Can Sprite,Soft Beverages,119,-,-,176,179,Crispy Chilli Corn
+104,Spaghetti In Mushroom Cream Sauce,Pasta & Grills,459,Veg,-,177,178,Loaded Nachos
+995,Dal Kichadi,Large Plates - North Indian,319,Veg,-,169,175,Aamrit
+962,Green Salad,Salads & Burger,199,Veg,-,160,175,Crispy Chilli Corn
+961,Som Tum Salad,Pan Asian,249,Veg,-,167,170,Avocado Roll
+1058,Philadelphia Roll,Sushi,0,Non-Veg,-,161,169,Chicken Popcorn
+1000,Curd Rice,Large Plates - South Indian,299,Veg,-,164,168,Crispy Chilli Corn
+1007,Chilly Garlic Fried Rice Veg,Pan Asian,299,Veg,-,165,166,Periperi French Fries
+733,Gongura Chicken,Small Plates,369,Non-Veg,-,162,165,Chilli Coriander Fish
+41,Kerala Beef Roast,Small Plates,529,Non-Veg,-,159,164,Aamrit
+48,Schezwan Prawns,Small Plates,499,Non-Veg,-,161,164,Aamrit
+856,Pahadi Soy Chops,From The Clay Oven,349,Veg,-,156,161,Aamrit
+731,Chettinad Chicken Fry,Small Plates,369,Non-Veg,Medium Spicy,155,158,Aamrit
+736,Devils Delights,Dessert,229,Veg,-,149,152,Aamrit
+1139,Rcb Fireball Brine,Ipl Cocktails,499,-,-,149,151,Loaded Nachos
+870,Huli Gun Ale ( 1000Ml ),Craft Beer,699,-,-,146,151,Periperi French Fries
+56,Crispy Vegetable Kebab,From The Clay Oven,349,Veg,-,144,150,Aamrit
+142,Neer Dosa,"Lentils, Staples & Breads",69,Veg,-,141,147,Mangalorean Chicken Ghee Roast
+1009,Schezwan Fried Rice Veg,Pan Asian,329,Veg,-,145,146,Crispy Chilli Corn
+983,Peri Peri Chicken Pizza,Pizza,579,Non-Veg,-,143,145,Chicken Popcorn
+1135,Jersey No 18,Ipl Cocktails,499,-,-,145,145,Loaded Nachos
+966,Cauliflower 65,Small Plates,269,Veg,-,143,144,Crispy Chilli Corn
+1138,Kookaburra,Ipl Cocktails,499,-,-,142,144,Peanut Masala
+286,Caramel Custard With Popcorn,Dessert,289,Non-Veg,-,144,144,Tres Leches
+96,Caesar Salad,Salads & Burger,289,Veg,-,127,144,Peanut Masala
+1054,Shiitake Roll,Sushi,0,Veg,-,141,142,Loaded Nachos
+127,Khao Suey Served With Toppings,Pan Asian,479,Veg,-,140,141,Aamrit
+98,Fried Chicken Burger,Salads & Burger,389,Non-Veg,-,137,141,Aamrit
+137,Jeera Cashew Pulao,"Lentils, Staples & Breads",319,Veg,-,138,141,Aamrit
+839,Mushrooms & Cream Cheese Tart,Small Plates,329,Veg,-,139,141,Aamrit
+147,Butter Naan,"Lentils, Staples & Breads",129,Veg,-,137,141,Paneer Butter Masala Served With Butter Naan
+513,Moscow Mule,Classic Cocktail,529,-,-,133,136,Loaded Nachos
+510,Margarita,Classic Cocktail,559,-,-,133,135,Loaded Nachos
+105,Grilled Chicken Breast,Pasta & Grills,499,Non-Veg,-,132,135,Aamrit
+618,Vanilla Ice Cream,Dessert,119,-,-,132,134,Aamrit
+896,Virgin Toddy,Mocktail,295,-,-,132,134,Aamrit
+846,Chicken Schnitzel,Pasta & Grills,469,Non-Veg,-,126,130,Aamrit
+487,Rowdy Stout (250Ml),Craft Beer,199,-,-,125,129,Malgudi Ale ( 250Ml )
+477,Ale Is Well (Pitcher),Craft Beer,999,-,-,123,128,Peanut Masala
+484,Red Raja (500Ml),Craft Beer,389,-,Medium Spicy,126,128,Malgudi Ale ( 500Ml )
+50,Bacon Wrapped Prawns,Small Plates,549,Non-Veg,-,124,127,Peanut Masala
+511,Whiskey Sour,Classic Cocktail,599,-,-,122,125,Periperi French Fries
+86,Assorted Funghi Pizza,Pizza,619,Veg,-,124,125,Loaded Nachos
+975,Golden Fried Prawns,Small Plates,429,Non-Veg,-,119,124,Aamrit
+432,Kadai Subz Served With Butter Naan,Large Plates - North Indian,349,Veg,-,123,124,Crispy Chilli Corn
+465,El Chamraj (Pitcher),Craft Beer,849,-,-,114,123,Peanut Masala
+970,Chipotle Chicken Wings,Small Plates,419,Non-Veg,-,121,123,Periperi French Fries
+430,Tadka Palak Served With Missi Roti,Large Plates - North Indian,339,Veg,-,118,120,Aamrit
+25,Buddha's Delight,Small Plates,359,Veg,-,112,117,Peanut Masala
+435,Home Style Chicken Curry Served With Kal Dosa,Large Plates - North Indian,499,Non-Veg,-,112,116,Aamrit
+280,Tonic Water,Soft Beverages,129,-,-,109,115,Peanut Masala
+438,Kozhi Chettinad Served With Malabar Paratha,Large Plates - South Indian,489,Non-Veg,-,111,114,Spicy Chicken Skewer
+1069,Pork Yakitori,Sushi,649,Non-Veg,-,113,114,Shrimp Popcorn
+974,Lamb Keema Urundai,Small Plates,429,Non-Veg,-,114,114,Aamrit
+281,Red Bull Energy Drink,Soft Beverages,229,-,-,107,114,Periperi French Fries
+1006,Burn Garlic Noodles Veg,Pan Asian,329,Veg,-,110,111,Periperi French Fries
+989,Spiced Chicken Burger,Salads & Burger,379,Non-Veg,-,106,110,Chicken Popcorn
+997,Mutton Rogan Josh With Garlic Naan,Large Plates - North Indian,599,Non-Veg,-,106,109,Aamrit
+64,Kalmi Kebab,From The Clay Oven,389,Non-Veg,-,104,108,Crispy Chilli Corn
+60,Smoked Beetroot Kebab,From The Clay Oven,369,Veg,-,106,107,Loaded Nachos
+714,Watermelon Jiuce,Soft Beverages,169,-,-,106,107,Crispy Chilli Corn
+87,Pizza Napoletana,Pizza,349,Veg,-,103,107,Loaded Nachos
+1008,Chilly Garlic Noodles Veg,Pan Asian,329,Veg,-,106,106,Loaded Nachos
+55,Pandi Curry With Sannas,Small Plates,529,Non-Veg,-,99,106,Kerala Beef Roast
+615,60% Single Origin Chocolate Ice Cream,Dessert,169,Veg,-,103,104,Aamrit
+512,Old Fashioned,Classic Cocktail,599,-,-,102,103,Peanut Masala
+1065,Tofu Dengaku,Sushi,399,Veg,-,97,101,Aamrit
+506,Bloody Mary,Classic Cocktail,529,-,-,98,99,Loaded Nachos
+483,Red Raja (250Ml),Craft Beer,219,-,-,97,98,Malgudi Ale ( 250Ml )
+617,Fresh Strawberry Ice Cream,Dessert,149,Veg,-,97,97,Aamrit
+990,Punjabi Mushroom Masala,Large Plates - North Indian,349,Veg,-,95,96,Aamrit
+277,Canned Juice,Soft Beverages,99,-,-,93,96,French Fries Salted
+424,Bbq Pork Ribs,Small Plates,589,Non-Veg,-,96,96,Aamrit
+473,Nandi Nectar (Pitcher),Craft Beer,959,-,-,92,95,Peanut Masala
+275,Coke,,0,-,-,93,94,Periperi French Fries
+536,Oreo Shake,,0,-,-,91,92,Aamrit
+99,Icb Beef Burger,,0,-,-,83,92,Aamrit
+991,Pindi Chole Kulcha,Large Plates - North Indian,349,Veg,-,91,92,Aamrit
+867,Ale Is Well (1000Ml),Craft Beer,699,-,-,89,91,Periperi French Fries
+110,Sauteed Vegetable,Sides & Add Ons,99,Veg,-,85,90,Peanut Masala
+443,"Chicken Thai Red Curry, Jasmine Rice",Pan Asian,569,Non-Veg,-,88,90,Crispy Chilli Corn
+1140,Bengaluru Bloom,Ipl Cocktails,499,-,-,90,90,Loaded Nachos
+1010,Schezwan Noodles Veg,Pan Asian,349,Veg,-,90,90,Aamrit
+1142,King Kohli Kick,,0,-,-,88,88,Spicy Chicken Skewer
+544,Roti Plain,"Lentils, Staples & Breads",69,Veg,-,86,87,Fresh Lime Soda
+481,Rassela Cider  (Pitcher),Craft Beer,829,-,-,81,87,Rassela Cider  Sampler (90Ml)
+538,Red Wine Sangria,Wine C Ocktails,529,-,-,85,86,Peanut Masala
+500,Bombay Fizz,Signature Cocktails,699,-,-,86,86,Crispy Chilli Corn
+852,Weissbier Tiramisu,Dessert,429,Egg,-,84,85,Tres Leches
+869,Happy Weizen (1000Ml),Craft Beer,699,-,-,83,84,Periperi French Fries
+97,Cheddar & Corn Burger,Salads & Burger,359,Veg,-,80,83,Periperi French Fries
+301,Smirnoff (30Ml),Vodka,299,-,-,82,83,Peanut Masala
+897,Hot Toddy,Classic Cocktail,489,-,-,82,83,Cheese Poppers
+984,Jerk Chicken Pizza,Pizza,599,Non-Veg,-,82,82,Loaded Nachos
+306,Old Monk (30Ml),Rum,229,-,-,78,82,Can Coke
+533,Hazelnut Shake,,0,-,-,82,82,Aamrit
+1136,Namma Bengaluru Fizz,Ipl Cocktails,499,-,-,82,82,Spicy Chicken Skewer
+38,Crab Omlette,Small Plates,999,Non-Veg,-,78,81,Shrimp Popcorn
+1057,Dragon Roll,Sushi,0,Non-Veg,-,78,79,Loaded Nachos
+875,Liit Pitcher,Classic Cocktail,1999,-,-,73,78,Crispy Chilli Corn
+77,Chili Pork Bao,"Momos, Dimsum & Bao",439,Non-Veg,-,75,75,Aamrit
+521,Kamikaze,Shooter,399,-,-,74,75,Periperi French Fries
+83,Pork Gyoza,"Momos, Dimsum & Bao",369,Non-Veg,-,71,73,Chilli Pork
+1067,Steamed Edamame,Sushi,499,Veg,-,70,72,Aamrit
+1137,Kings Signature,Ipl Cocktails,499,-,-,71,71,Spicy Chicken Skewer
+874,Wit Maga (1000Ml),Craft Beer,699,-,-,70,70,Loaded Nachos
+1066,Shiitake Yakitori,Sushi,749,Veg,-,68,69,Aamrit
+497,Moksha,Signature Cocktails,499,-,-,68,68,Peanut Masala
+58,Tandoori Subz,From The Clay Oven,299,Veg,-,68,68,Loaded Nachos
+1055,Takuan Roll,Sushi,0,Veg,-,67,67,Aamrit
+141,Malabar Paratha,"Lentils, Staples & Breads",99,Veg,-,65,66,Chilli Egg
+515,Blue Frog ( High Abv),(High Abv) Contains 100 Ml Alcohol,729,-,-,62,66,Liit
+537,Berry Shake,,0,-,-,65,66,Aamrit
+542,Dal Makhani Served With Butter Naan,"Lentils, Staples & Breads",359,Veg,-,64,65,Cheese Poppers
+985,Pork Pepperoni Pizza,Pizza,629,Non-Veg,-,63,64,Chicken Popcorn
+423,Can Soda,Soft Beverages,129,-,-,60,64,Crispy Chilli Corn
+972,Nati Style Lamb Chops,Small Plates,599,Non-Veg,-,63,64,Aamrit
+505,Clover's Club,Classic Cocktail,529,-,-,62,63,Kanak
+143,Kal Dosa,"Lentils, Staples & Breads",79,Veg,-,60,62,Aamrit
+929,Sicilian Cannoli,Dessert,479,Egg,-,62,62,Golden Kick
+1011,South Indian Coffee Brulee,Dessert,349,Egg,-,61,62,Tres Leches
+451,Dal Tadka Served With Butter Roti,"Lentils, Staples & Breads",299,Veg,-,61,61,Fresh Lime Soda
+545,Roti Butter,"Lentils, Staples & Breads",99,Veg,-,60,61,Aamrit
+106,Paprika Crusted Pan Seared Fish,Pasta & Grills,499,Non-Veg,-,58,61,Aamrit
+434,Kosha Mangsho Served With Steam Gobindho Bhog Rice,Large Plates - North Indian,599,Non-Veg,-,59,61,Aamrit
+980,Prawn Hargaon Dumpling,"Momos, Dimsum & Bao",449,Non-Veg,-,60,60,Loaded Nachos
+347,Black Dog Black  (30Ml),Whisky,299,-,-,57,57,Crispy Chilli Corn
+361,Jameson (30Ml),International Whiskey,399,-,-,56,57,Peanut Masala
+992,Punjabi Dum Aloo,Large Plates - North Indian,319,Veg,-,56,56,Aamrit
+566,Classic Ice Burst (20 Pcs),Smokes,650,-,-,54,55,Periperi French Fries
+706,Classic Connect 20,Smokes,560,-,-,52,52,Peanut Masala
+299,Absolut (30Ml),Vodka,429,-,-,47,50,Periperi French Fries
+519,Lemon & Salt,Shooter,349,-,-,47,50,Crispy Chilli Corn
+330,Johnnie Walker Red Label (30Ml),Whisky,369,-,-,47,50,Peanut Masala
+1141,Victory Vibe 25,Ipl Cocktails,499,-,-,49,49,Kookaburra
+82,Prawn Pheonix Eye Dumpling,"Momos, Dimsum & Bao",459,Non-Veg,-,48,49,Shrimp Popcorn
+315,Jaisalmer (30Ml),,0,-,-,48,48,Tonic Water
+383,Mansion House (30Ml),Cognac/Brandy,229,-,-,47,48,Peanut Masala
+503,Caravan,Signature Cocktails,699,-,-,48,48,Periperi French Fries
+151,Missi Roti,"Lentils, Staples & Breads",69,Veg,-,45,47,Tadka Palak Served With Missi Roti
+973,Mutton Kari Dosa,Small Plates,399,Non-Veg,-,47,47,Peanut Masala
+868,El Chamraj (1000Ml),Craft Beer,699,-,-,44,47,Peanut Masala
+261,Sdu Cabernet Sauvignon (Glass),Red Wine,529,-,-,47,47,Peanut Masala
+993,Sambar Rice - Veg,Large Plates - South Indian,319,Veg,-,46,47,Curd Rice
+971,Kongu Nadu Chicken Fry,Small Plates,369,Non-Veg,-,46,46,Crispy Chilli Corn
+1059,Spicy Tuna Roll,Sushi,0,Non-Veg,-,46,46,Shrimp Popcorn
+960,Sour Cherry Burrata,Salads & Burger,599,Veg,-,45,45,Avocado Roll
+1002,Chinese Chilly Paneer,Pan Asian,329,Veg,-,44,44,Burn Garlic Fried Rice -Veg
+523,Jager Energy,,0,-,-,44,44,Periperi French Fries
+717,Red Velvet Cake 500Gm,Dessert,550,Veg,-,43,43,Golden Kick
+715,Chocolate Cake 500 Gm,Dessert,700,Veg,-,41,42,Periperi French Fries
+509,Daiquiri,Classic Cocktail,529,-,-,40,40,Loaded Nachos
+999,Malabar Prawn Curry With Rice,Large Plates - South Indian,629,Non-Veg,-,39,39,Fresh Lime Soda
+404,Fratelli Cabernet Franc Shiraz  (Glass),Red Wine,529,-,-,39,39,Golden Kick
+872,Rassela Cider  (1000Ml),Craft Beer,699,-,-,37,38,Periperi French Fries
+871,Nandi Nectar (1000Ml),Craft Beer,699,-,-,37,38,Chicken Popcorn
+303,Bacardi Carta Blanca (30Ml),Rum,249,-,-,34,37,Periperi French Fries
+485,Red Raja (Pitcher),Craft Beer,999,-,-,36,37,Chicken Popcorn
+998,Bun Mutton,Large Plates - South Indian,489,Non-Veg,-,36,36,Chicken Popcorn
+987,Smashed Jackfruit Burger,Salads & Burger,359,Veg,-,36,36,Aamrit
+444,"Prawns Thai Yellow Curry, Jasmine Rice",Pan Asian,699,Non-Veg,-,35,35,Aamrit
+146,Plain Naan,"Lentils, Staples & Breads",99,Veg,-,35,35,Aamrit
+405,Fratelli Merlot  (Glass),Red Wine,529,-,-,35,35,Periperi French Fries
+964,Quinoa Salad,Salads & Burger,329,Veg,-,35,35,Peanut Masala
+342,Ballantines Finest (30Ml),Whisky,399,-,-,31,33,Peanut Masala
+489,Rowdy Stout (Pitcher),Craft Beer,959,-,-,32,33,Loaded Nachos
+996,Rass Omelette Chicken,Large Plates - South Indian,349,Non-Veg,-,30,31,Shrimp Popcorn
+616,Malt Ice Cream,Dessert,169,-,-,30,31,Chicken Popcorn
+540,Mimosa,Wine C Ocktails,529,-,-,31,31,Aamrit
+1004,Kung Pao Chicken Curry,Pan Asian,399,Non-Veg,-,31,31,Burn Garlic Fried Rice -Veg
+340,Teacher's Highland Cream (30Ml),Whisky,349,-,-,29,30,Periperi French Fries
+495,Rasa,Signature Cocktails,499,-,-,30,30,French Fries Salted
+320,Nilgiri (30Ml),,0,-,-,29,29,Tonic Water
+311,Tanqueray (30Ml),,0,-,-,28,29,Tonic Water
+308,Roku Gin (30Ml),Gin,649,-,-,28,28,Tonic Water
+69,Tandoori Pomfret,,0,-,-,28,28,Chicken Popcorn
+348,100 Piper Deluxe (30Ml),Whisky,369,-,-,27,28,Periperi French Fries
+790,1800 Mango Picante,Signature Cocktails,999,-,-,27,28,Indo-Chinese Bhel
+1033,Beefeater Gin (30Ml),,0,-,-,26,27,Tonic Water
+986,Ham & Bacon Pizza,Pizza,649,Non-Veg,-,26,27,Shrimp Popcorn
+387,Jagermeister Ice Cold Shot (30Ml),,0,-,-,26,26,Crispy Chilli Corn
+145,Laccha Paratha Butter,"Lentils, Staples & Breads",119,Veg,-,26,26,Punjabi Mushroom Masala
+649,Rose Wine Sangria,Wine C Ocktails,529,-,-,24,25,Loaded Nachos
+565,Gold Flake Lights (20Pcs),Smokes,650,-,-,25,25,Chicken Popcorn
+140,Sannas,"Lentils, Staples & Breads",99,Veg,-,25,25,Aamrit
+338,Teacher's 50 (30Ml),Whisky,379,-,-,18,24,Chicken Popcorn
+1128,Jager Beer Bomb 1+1,,0,-,-,24,24,Periperi French Fries
+1127,Red Raja (1000Ml),Craft Beer,699,-,-,23,23,Chilli Egg
+645,Bushmills Irish Whiskey (30 Ml),International Whiskey,399,Veg,-,21,23,Periperi French Fries
+1143,Gold Flake Kings (10Pcs),,0,-,-,23,23,Malgudi Ale ( 500Ml )
+1060,Sake Nigiri,Sushi,999,Non-Veg,-,22,22,Loaded Nachos
+144,Laccha Paratha Plain,"Lentils, Staples & Breads",99,Veg,-,21,21,Paneer Butter Masala Served With Butter Naan
+908,Royal Ranthambore (30Ml),Whisky,289,-,-,19,21,Peanut Masala
+571,Classic Mild (20Pcs),,0,-,-,19,20,Spicy Chicken Skewer
+740,Extra Paav,Sides & Add Ons,79,-,-,19,20,Kheema Pav
+643,Jose Cuervo Silver (30 Ml),Tequila/Mezcal,429,Veg,-,20,20,Peanut Masala
+360,Jim Beam (30Ml),International Whiskey,399,-,-,19,20,Crispy Chilli Corn
+125,Vermicelli & Yogurt,Large Plates - South Indian,319,Veg,-,20,20,Golden Kick
+988,Charcoal Grill Veg Burger,Salads & Burger,349,Veg,-,19,19,Aamrit
+774,Bacardi Classic Mojito ( Pitcher ),Classic Cocktail,1499,-,-,19,19,Periperi French Fries
+496,Utsav,Signature Cocktails,499,-,-,18,19,Crispy Chilli Corn
+139,Steamed Rice,"Lentils, Staples & Breads",179,Veg,-,19,19,Fresh Lime Soda
+873,Rowdy Stout (1000Ml),Craft Beer,699,-,-,19,19,Peanut Masala
+806,Red Wine Sangria ( Pitcher ),Liquor Offer Price,1999,-,-,16,18,Peanut Masala
+949,Black Dog 12Yrs (30Ml),Whisky,399,-,-,17,18,Loaded Nachos
+357,Jack Daniels No 7 (30Ml),International Whiskey,499,-,-,17,17,Crispy Onion Rings
+742,Bacardi Mango Chilli (30Ml),,0,-,-,15,16,Periperi French Fries
+1001,Asian Style Soy Garlic Veg,Pan Asian,299,Veg,-,16,16,Burn Garlic Fried Rice -Veg
+1072,Takikomi Fried Rice,Sushi,649,Veg,-,15,16,Aamrit
+979,Chilly Chicken Basil Dumplings,,0,-,-,16,16,Charcoal Chicken Dumpling
+502,Shalimar,Signature Cocktails,499,-,-,16,16,Soma
+118,Jim Beam Black (30Ml),International Whiskey,429,-,-,15,15,Chicken Popcorn
+416,Sparkling Water,Soft Beverages,339,-,-,14,15,Malgudi Ale ( 500Ml )
+1126,Fire Ball Boilermaker,Shooter,361,-,-,15,15,Kamikaze
+994,Sambar Rice -Chicken,Large Plates - South Indian,349,Non-Veg,-,14,14,Peanut Masala
+298,Ketel One (30Ml),Vodka,399,-,-,14,14,Mangalorean Chicken Ghee Roast
+334,Chivas Regal 12 Yrs (30Ml),Whisky,599,-,-,14,14,Chicken Popcorn
+319,Malhar (30Ml),Gin,429,-,-,14,14,Tonic Water
+539,White Wine Sangria,Wine C Ocktails,529,-,-,14,14,Aamrit
+644,Jose Cuervo Reposado (30 Ml),Tequila/Mezcal,429,Veg,-,12,13,Chicken Popcorn
+1077,100 Pippers 12Yrs (30Ml),Whisky,399,-,-,13,13,Tres Leches
+895,Jager Beer Bomb,,0,-,-,13,13,Shrimp Popcorn
+789,1800 Og Picante,Signature Cocktails,999,-,-,12,13,Chilli Egg
+349,Dewars White Label (30Ml),Whisky,399,-,-,13,13,Peanut Masala
+274,Sprite,Soft Beverages,75,-,-,13,13,Fried Dhai Kebab
+325,Don Angel  (30Ml),Tequila/Mezcal,499,-,-,13,13,Spicy Chicken Skewer
+379,Paul John Nirvana (30Ml),Single Malts,239,-,-,12,12,Crispy Chilli Corn
+1062,Unagi Nigiri,Sushi,1499,Non-Veg,-,10,12,Golden Kick
+1064,Sake Sashimi,Sushi,849,Non-Veg,-,11,12,Crispy Chilli Corn
+367,Glenlivet 12 Yrs (30Ml),,0,-,-,11,11,Crispy Chilli Corn
+384,Kahlua (30Ml),Liqueurs,349,-,-,11,11,Crispy Chilli Corn
+1014,Roku Gin Sakura (30Ml),Gin,669,-,-,10,11,Loaded Nachos
+951,Roulette  Vodka 30 Ml,,0,-,-,11,11,Crispy Chilli Corn
+396,Fratelli Sauvignon Blanc  (Glass),White Wines,529,-,-,10,10,Shrimp Popcorn
+351,Suntory Toki (30Ml),International Whiskey,699,-,-,10,10,Crispy Chilli Corn
+368,Glenlivet Carriben  (30Ml),Single Malts,559,-,-,10,10,Crispy Onion Rings
+560,Martini,,0,-,-,9,10,Mojito
+359,Jack Daniels Honey (30Ml),International Whiskey,499,-,-,10,10,Periperi French Fries
+646,Roulette  Gin 30 Ml,,0,-,-,9,10,Tonic Water
+333,Johnnie Walker Double Black (30Ml),Whisky,629,-,-,10,10,Aamrit
+336,Dewar's Double Aged 15 Yrs (30Ml),International Whiskey,699,-,-,10,10,Garlic Bread With Cheese
+613,Pineapple Juice,,0,-,-,9,9,Peanut Masala
+1081,Nirvana Whisky Sour,,0,-,-,9,9,Chilli Egg
+832,Jack Apple Tonic,Classic Cocktail,699,-,-,9,9,Periperi French Fries
+1083,Nirvana Gold Rush,,0,-,-,9,9,Peanut Masala
+332,Johnnie Walker Black Label (30Ml),Whisky,599,-,-,9,9,Loaded Nachos
+331,Johnnie Walker Blonde (30Ml),Whisky,429,-,-,8,9,Periperi French Fries
+296,Grey Goose (30Ml),Vodka,629,-,-,9,9,Water Bottle 750Ml
+395,Fratelli Chardonnay  (Glass),White Wines,529,-,-,8,8,Loaded Nachos
+1034,Chivas Regal 18 Yrs (30Ml),,0,-,-,8,8,Crispy Chilli Corn
+898,Negroni,,0,-,-,8,8,Mojito
+959,Sitara Spiced Rum (30Ml),Rum,299,-,-,8,8,Can Coke
+1123,Fireball (30Ml),Whisky,289,-,-,7,7,Crispy Onion Rings
+358,Jack Daniels Apple (30Ml),International Whiskey,499,-,-,7,7,Peanut Masala
+247,Sdu Chenin (Glass),White Wines,529,-,-,7,7,Chilli Paneer
+780,Jim Beam Honey (30Ml),Whisky,429,-,-,7,7,Chilli Paneer
+563,Champagne,Wine C Ocktails,529,-,-,7,7,Wit Maga Sampler (90Ml)
+829,Jack Daniels Fire (30Ml),International Whiskey,543,-,-,7,7,Crispy Chilli Corn
+1071,Golden Veg Curry,Sushi,699,Veg,-,7,7,Crispy Chilli Corn
+743,Oaksmith Gold (30Ml),Whisky,239,-,-,7,7,Can Soda
+356,Jack Daniel's Single Barrel (30Ml),International Whiskey,699,-,-,7,7,Aamrit
+322,Don Julio Blanco (30Ml),Tequila/Mezcal,799,-,-,7,7,Wit Maga (500Ml)
+626,Breezer Jamaican Passion,,0,-,-,6,6,Aamrit
+831,Jack Honey Ginger,Classic Cocktail,699,-,-,6,6,Can Coke
+834,Sula Chenin Blanc White (Glass),White Wines,549,-,-,6,6,Happy Weizen (500Ml)
+564,Gold Flake Kings (20Pcs),,0,-,-,6,6,Chilli Chicken
+1144,Gold Flake Lights (10Pcs),,0,-,-,6,6,Periperi French Fries
+808,Rose Wine Sangria ( Pitcher ),Liquor Offer Price,1999,-,-,6,6,Wit Maga (250Ml)
+1080,Carajillo 43,Shooter,499,-,-,6,6,Loaded Nachos
+343,Ballantine 7 Yrs (30Ml),Whisky,449,-,-,5,5,Periperi French Fries
+627,Breezer Cranberry,,0,-,-,5,5,Peanut Masala
+1082,Nirvana Old Fashioned,,0,-,-,5,5,Loaded Nachos
+309,Monkey 47 (30Ml),Gin,929,-,-,4,5,Peanut Masala
+318,Samsara (30Ml),Gin,299,-,-,5,5,Tonic Water
+830,The Classic Way,Classic Cocktail,699,-,-,5,5,Crispy Chilli Corn
+1104,Gold Flake King Sleeks 20,Smokes,560,-,-,5,5,Happy Weizen (500Ml)
+553,Jacob's Creek Shiraz Cabernet (Bottle),Red Wine,2949,-,-,4,4,Loaded Nachos
+946,Haymans Peach & Rose (30Ml),Gin,699,-,-,4,4,Pahadi Paneer Tikka
+1103,Gold Flake Social 20,,0,-,-,4,4,Chicken Popcorn
+353,Gentleman Jack (30Ml),International Whiskey,599,-,-,4,4,Chilli Chicken
+113,Mango Shake,,0,-,-,4,4,Aamrit
+807,White Wine Sangria ( Pitcher ),Liquor Offer Price,1999,-,-,4,4,Masala Papad
+354,Woodford Reserve (30Ml),International Whiskey,699,-,-,4,4,Avocado Roll
+380,Paul John Brilliance (30Ml),Single Malts,449,-,-,4,4,Happy Weizen (500Ml)
+337,Teacher's Golden Thistle (30Ml),Whisky,429,-,-,4,4,Tandoori Chicken Wings
+570,Classic Ultra Mild (20Pcs),Smokes,650,-,-,4,4,Masala Papad
+744,Jw Blue Label (30Ml),International Whiskey,1699,-,-,4,4,Can Coke
+366,Aberfeldy 12 Yrs (30Ml),Single Malts,699,-,-,4,4,Buddha's Delight
+491,Ramanujan (250Ml),,0,-,-,4,4,Chicken Popcorn
+323,1800 Silver (30Ml),Tequila/Mezcal,724,-,-,3,3,Crispy Chilli Corn
+282,Red Bull Sugar Free,,0,-,-,3,3,Periperi French Fries
+958,Sitara White (30Ml),Rum,299,-,-,2,3,Rose Wine Sangria
+781,Jim Beam Orange (30Ml),Whisky,429,-,-,3,3,Chilli Chicken
+312,Bombay Sapphire (30Ml),Gin,429,-,-,3,3,Diet Coke
+554,Fratelli Cabernet Franc Shiraz (Bottle),Red Wine,1999,-,-,3,3,Crispy Chilli Corn
+350,Hibiki (30Ml),International Whiskey,1099,-,-,3,3,Golden Kick
+555,Fratelli Merlot (Bottle),Red Wine,1999,-,-,3,3,Peanut Masala
+1061,Kampachi Nigiri,Sushi,929,Non-Veg,-,3,3,Chicken Dum Biriyani
+95,Thai Peanut Salad,,0,-,-,3,3,Angaar Murgh Tikka
+1105,Gold Flake Light Sleeks 20,Smokes,560,-,-,3,3,Kamikaze
+324,Patron Silver (30Ml),,0,-,-,3,3,Vanilla Ice Cream
+371,Godawan Rich And Round (30Ml),Single Malts,559,-,-,3,3,Paprika Grilled Chicken Salad
+684,Nandi Nectar (250Ml)  1+1,,0,-,-,3,3,Loaded Nachos
+355,Makers Mark (30Ml),International Whiskey,599,-,-,3,3,Chilli Chicken
+682,El Chamraj (250Ml)  1+1,,0,-,-,3,3,French Fries Salted
+681,Happy Weizen (250Ml)  1+1,,0,-,-,3,3,Chilly Garlic Noodles Veg
+680,Wit Maga (250Ml)  1+1,,0,-,-,3,3,Happy Weizen (500Ml)
+1063,Kampachi Sashimi,Sushi,949,Non-Veg,-,3,3,California Roll
+374,Laphroaig Islay 10Yrs (30Ml),Single Malts,645,-,-,3,3,French Fries Salted
+411,Fratelli Noi Sparkling  (Glass),,0,-,-,3,3,Utsav
+711,Tequila 1800 Coconut (30Ml),Tequila/Mezcal,709,-,-,3,3,Crispy Chilli Corn
+948,The Singleton 18 Yrs (30Ml),International Whiskey,1149,-,-,2,2,Ale Is Well (1000Ml)
+912,Kashmyr Saffron Vodka (30Ml),Vodka,479,-,-,2,2,Peanut Masala
+709,Templeton Rye Whiskey 4 Yrs (30Ml),International Whiskey,569,-,-,2,2,Red Raja (500Ml)
+782,Diplomatico Planas Rum (30Ml),Rum,559,-,-,2,2,Avocado Roll
+688,Rowdy Stout (250Ml)  1+1,,0,-,-,2,2,Happy Weizen (500Ml)
+899,Bushmills 12Yrs (30Ml),International Whiskey,755,-,-,2,2,Periperi French Fries
+955,Samsara Pink (30Ml),Gin,369,-,-,2,2,Happy Weizen (1000Ml)
+614,Godawan Fruit And Spicy (30Ml),Single Malts,559,-,-,2,2,Masala Mule
+535,Choco-Mint Shake,,0,-,-,2,2,Butter Garlic Prawns
+335,Dewar's Double Aged 12Yrs (30Ml),Whisky,629,-,-,2,2,Jaisalmer (30Ml)
+1073,Stoli Vodka (30Ml),Vodka,429,-,-,2,2,Melon Mingle
+402,Casillero Del Diablo  Cabernet Sauvignon ( Bottle ),Red Wine,5549,-,-,2,2,Aamrit
+363,The Singleton 12 Yrs (30Ml),,0,-,-,2,2,Vegetable Spring Roll
+310,Tanqueray No. Ten  (30Ml),,0,-,-,2,2,Pahadi Paneer Tikka
+42,Asian-Style Pork Spare Ribs,,0,-,-,2,2,Golden Kick
+341,Scottish Leader (30Ml),Whisky,349,-,-,2,2,Sticky Date Pudding With Vanilla Ice Cream
+1074,Dalmore 12Yrs (30Ml),International Whiskey,919,-,-,2,2,Chicken Popcorn
+352,The Yamazaki (30Ml),Single Malts,1499,-,-,2,2,Kheema Pav
+547,Jacob's Creek Chardonnay (Bottle),White Wines,2949,-,-,2,2,Tanuki Roll
+548,Fratelli Chardonnay  (Bottle),White Wines,1999,-,-,2,2,Avocado Roll
+712,Chivas Regal 15 Yrs (30Ml),Whisky,779,-,-,2,2,Roku Gin Sakura (30Ml)
+907,Rampur Indian Whisky (30Ml),Single Malts,779,-,-,1,1,Crispy Onion Rings
+884,Magic Moment Verve (30Ml),Vodka,299,-,-,1,1,Utsav
+761,Totapuri Fish Curry,,0,-,-,1,1,Strawberry Iced Tea
+369,Bowmore 12 Yrs (30Ml),Single Malts,699,-,-,1,1,Icb Paneer Tikka
+1119,Creyente Mezcal (30Ml),Tequila/Mezcal,749,-,-,1,1,Chilli Pork
+1111,Loca Loka Blanco (30Ml),Tequila/Mezcal,759,-,-,1,1,Can Soda
+647,Wild Turkey 30 Ml,,0,-,-,1,1,Sago Vada
+1125,Highland Park 15Yrs (30Ml),Single Malts,1099,-,-,1,1,Vegetable Spring Roll
+316,Gig (30Ml),Gin,299,-,-,1,1,Masala Papad
+378,Paul John Bold (30Ml),,0,-,-,1,1,Lamb Keema Urundai
+833,Sula Merlot Red (Glass),Red Wine,549,-,-,1,1,Rowdy Stout Sampler(90Ml)
+410,Freixenet Cordon Negro Brut- Cava  (Glass),Sparkling Wine/Champagne,829,-,-,1,1,Mojito
+701,Martell Vsop,Cognac/Brandy,1499,-,-,1,1,Weissbier Tiramisu
+302,Captain Morgon (30Ml),Rum,299,-,-,1,1,Liit
+304,Bacardi Carta Oro (30Ml),Rum,229,-,-,1,1,Pork Yakitori
+339,Teacher's Origin (30Ml),Whisky,359,-,-,1,1,Kanak
+549,Fratelli Sauvignon Blanc (Bottle),White Wines,1999,-,-,1,1,Mixed Mushroom & Creamcheese Dumpling
+835,Sula Brut Sparkling (Bottle),Sparkling Wine/Champagne,2299,-,-,1,1,Chicken Gyoza
+305,Bacardi Black (30Ml),Rum,249,-,-,1,1,Andhra Chilly Chicken
+313,Gordon's  (30Ml),Gin,299,-,-,1,1,Seasonal Vegetable Pizza
+1121,Macallan 12Yrs (30Ml),Single Malts,929,-,-,1,1,Crab Omlette
+1003,Rendang Chicken Curry,Pan Asian,399,Non-Veg,-,1,1,Blue Frog ( High Abv)
+836,Sula Chenin Blanc White (Bottle),White Wines,2199,-,-,1,1,Paneer Momo
+1093,Pani Puri (7 Pieces),,0,-,-,1,1,Fresh Lime Soda
+321,Don Julio Raposado (30Ml),Tequila/Mezcal,999,-,-,1,1,El Chamraj (Pitcher)
+1041,Watermelon Cucumber Highball,Classic Cocktail,723,-,-,1,1,Kozhi Chettinad Served With Malabar Paratha
+1108,Rangeela (30Ml),Vodka,299,-,-,1,1,Chicken Popcorn
+1109,Zoya Gin (30Ml),Gin,299,-,-,1,1,Butter Garlic Prawns
+344,William Lawsons (30Ml),Whisky,299,-,-,1,1,Black Dog Black  (30Ml)
+902,Onegin Vodka (30Ml),Vodka,739,-,-,1,1,Margarita
+317,Greater Than (30Ml),Gin,249,-,-,1,1,Cheese Poppers
+1036,Spiked Iced Tea,Classic Cocktail,723,-,-,1,1,Diet Coke
+376,Amrut Fusion (30Ml),Single Malts,399,-,-,1,1,Pepper Mutton
+546,Two Ocean Chardonnay (Bottle),White Wines,3949,-,-,1,1,Smoked Beetroot Kebab
+1079,Lucifers Gold (30Ml),Whisky,389,-,-,1,1,Can Soda
+436,Lasooni Jhinga Served With Laccha Paratha,,0,-,-,1,1,Paneer Butter Masala Served With Butter Naan
+911,Kashmyr Natural Vodka (30Ml),Vodka,459,-,-,1,1,Happy Weizen (250Ml)
+1122,Macallan 15Yrs (30Ml),Single Malts,1459,-,-,1,1,Red Bull Energy Drink
+409,Zonin Prosecco Sparkling (Bottle),Sparkling Wine/Champagne,5949,-,-,1,1,Crispy Onion Rings
+760,Cashew Prwan Curry,,0,-,-,1,1,Chilli Paneer
+494,Ramanujan Sampler (90Ml),,0,-,-,1,1,El Chamraj Sampler (90Ml)
+658,Chikoo Shake,,0,-,-,1,1,Aamrit
+362,Jameson Stout Edition (30Ml),International Whiskey,449,-,-,1,1,Clover's Club
+522,B-52,,0,-,-,1,1,Oaksmith Gold (30Ml)
+796,Malgudi Ale ( 250Ml )  1+1,,0,-,-,1,1,French Fries Salted
+795,Huli Gun Ale ( 250Ml )  1+1,,0,-,-,1,1,Jeera Cashew Pulao
+1076,Glenlivet 15Yrs (30Ml),Single Malts,979,-,-,1,1,Can Coke
+314,Hapusa  (30Ml),Gin,499,-,-,1,1,Cheese Poppers
+651,Royal Brackla 30 Ml,International Whiskey,999,-,-,1,1,Shrimp Popcorn
+415,Soda,,0,-,-,1,1,Chicken Popcorn
+307,Amrut Two Indies  (30Ml),Rum,329,-,-,1,1,Chilly Garlic Fried Rice Veg
+746,Aamchi Shots,,0,-,-,1,1,Corn Seekh Kebab
+758,Ghee Rice Chicken Curry,,0,-,-,1,1,Chilly Garlic Fried Rice Veg
+1145,Jd Fire Boilermake,Shooter,633.5,-,-,1,1,Carajillo 43
+652,Sipsmith Dry Gin 30 Ml,Gin,649,-,-,1,1,Brownie With Vanilla Ice Cream
+295,Beluga (30Ml),Vodka,899,-,-,1,1,Zero Mojito
+745,Jw Gold Label (30Ml),International Whiskey,659,-,-,1,1,Paneer Tikka Pizza
+828,Old Monk Supreme (30Ml),Rum,279,-,-,1,1,Lemon & Salt
+329,Desmondji (30Ml),Tequila/Mezcal,399,-,-,1,1,Malgudi Ale ( Pitcher )
+1130,Stoli Caramel Vodka (30Ml),Vodka,509,-,-,1,1,Johnnie Walker Red Label (30Ml)
+31,Asparagus & Mushroom Aglio Olio,,0,-,-,1,1,Avocado Roll
+370,The Ardmore  (30Ml),Single Malts,599,-,-,1,1,Bbq Chicken Wings
