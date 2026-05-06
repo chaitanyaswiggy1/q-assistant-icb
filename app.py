@@ -48,8 +48,8 @@ st.markdown(
 MENU_PATH     = os.path.join(os.path.dirname(__file__), "menu.json")
 ANALYTICS_CSV = os.path.join(os.path.dirname(__file__), "menu_analytics.csv")
 RX_NAME       = "ICB"
-PROVIDER_SLUG = "aistudio"          # AI Providers slug from Portkey dashboard
-MODEL         = "gemini-1.5-flash"  # free, fast
+PROVIDER_SLUG = "night-ptu-gpt-4o"  # AI Providers slug from Portkey dashboard
+MODEL         = "gpt-4o"
 TEMPERATURE   = 0.7
 MAX_TOKENS    = 600
 
@@ -153,7 +153,7 @@ with st.sidebar:
         st.rerun()
 
     st.markdown(
-        "<div style='font-size:0.7rem;color:#666;margin-top:8px;'>Portkey → aistudio (Gemini) · Internal testing</div>",
+        "<div style='font-size:0.7rem;color:#666;margin-top:8px;'>Portkey → GPT-4o · Internal testing</div>",
         unsafe_allow_html=True,
     )
 
