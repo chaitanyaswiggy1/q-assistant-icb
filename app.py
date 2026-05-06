@@ -48,8 +48,9 @@ st.markdown(
 MENU_PATH     = os.path.join(os.path.dirname(__file__), "menu.json")
 ANALYTICS_CSV = os.path.join(os.path.dirname(__file__), "menu_analytics.csv")
 RX_NAME       = "ICB"
-PROVIDER_SLUG = "night-ptu-gpt-4o"  # AI Providers slug from Portkey dashboard
-MODEL         = "gpt-4o"
+# Configurable via Streamlit secrets — change without redeploying
+PROVIDER_SLUG = st.secrets.get("PORTKEY_PROVIDER", os.environ.get("PORTKEY_PROVIDER", "night-ptu-gpt-4o"))
+MODEL         = st.secrets.get("MODEL", os.environ.get("MODEL", "gpt-4o"))
 TEMPERATURE   = 0.7
 MAX_TOKENS    = 600
 
