@@ -8,6 +8,7 @@ Deploy:        Push to GitHub → connect to Streamlit Cloud (share.streamlit.io
 
 import os
 import json
+from typing import Optional
 import anthropic
 import streamlit as st
 from portkey_ai import createHeaders, PORTKEY_GATEWAY_URL
@@ -64,7 +65,7 @@ STARTER_SUGGESTIONS = [
 
 # ── Data loading (cached) ─────────────────────────────────────────────────────
 @st.cache_resource
-def get_menu_data(extra_scores: dict | None = None):
+def get_menu_data(extra_scores: Optional[dict] = None):
     return load_menu(
         MENU_PATH,
         analytics_csv_path=ANALYTICS_CSV if os.path.exists(ANALYTICS_CSV) else None,
@@ -73,17 +74,17 @@ def get_menu_data(extra_scores: dict | None = None):
 
 
 # ── Portkey client factory ────────────────────────────────────────────────────
-def make_client(portkey_api_key: str, virtual_key: str) -> anthropic.Anthropic:
+def make_client(portkey_api_key: str, provider_slug: str) -> anthropic.Anthropic:
     """
-    Build an Anthropic SDK client that routes all calls through Portkey.
-    The virtual_key wraps the actual Anthropic API key stored in Portkey.
+    Build an Anthropic SDK client routed through Portkey gateway.
+    provider_slug is the Model Catalog slug (e.g. @anthropic-prod).
     """
     return anthropic.Anthropic(
-        api_key="portkey",           # placeholder — auth is handled by Portkey headers
+        api_key="portkey",           # placeholder — auth handled by Portkey headers
         base_url=PORTKEY_GATEWAY_URL,
         default_headers=createHeaders(
             api_key=portkey_api_key,
-            virtual_key=virtual_key,
+            provider=provider_slug,
             metadata={
                 "app": "Q-Assistant",
                 "restaurant": RX_NAME,
@@ -106,11 +107,11 @@ with st.sidebar:
         help="Your Portkey workspace API key (app.portkey.ai → API Keys)",
     )
     virtual_key = st.text_input(
-        "Anthropic Virtual Key",
+        "Portkey Provider Slug",
         type="password",
         value=os.environ.get("PORTKEY_VIRTUAL_KEY", st.secrets.get("PORTKEY_VIRTUAL_KEY", "")),
-        placeholder="anthropic-virtual-key-...",
-        help="Virtual key created in Portkey dashboard → Virtual Keys → Anthropic",
+        placeholder="@anthropic-prod",
+        help="Model Catalog slug from app.portkey.ai → Model Catalog → Add Provider → Anthropic",
     )
 
     tester_name = st.text_input(
@@ -185,23 +186,22 @@ st.markdown(
 # ── Credential validation ─────────────────────────────────────────────────────
 if not portkey_api_key or not virtual_key:
     st.info(
-        "👈 Enter your **Portkey API Key** and **Anthropic Virtual Key** in the sidebar to start.",
+        "👈 Enter your **Portkey API Key** and **Provider Slug** in the sidebar to start.",
         icon="🔑",
     )
     with st.expander("How to set this up"):
         st.markdown(
             """
             1. Go to **[app.portkey.ai](https://app.portkey.ai)**
-            2. **API Keys** → copy your workspace API key → paste as *Portkey API Key*
-            3. **Virtual Keys** → Add Key → select Anthropic → paste your Anthropic key → save
-            4. Copy the virtual key slug → paste as *Anthropic Virtual Key*
+            2. **Settings → API Keys** → copy your workspace API key → paste as *Portkey API Key*
+            3. **Model Catalog → Add Provider** → select **Anthropic** → paste your Anthropic API key → name it (e.g. `anthropic-prod`) → Save
+            4. Your provider slug is `@anthropic-prod` → paste as *Provider Slug*
 
-            **For Streamlit Cloud:** add both keys under App → Settings → Secrets:
+            **For Streamlit Cloud** (so colleagues need no keys):
             ```toml
-            PORTKEY_API_KEY = "pk-..."
-            PORTKEY_VIRTUAL_KEY = "anthropic-..."
+            PORTKEY_API_KEY     = "pk-..."
+            PORTKEY_VIRTUAL_KEY = "@anthropic-prod"
             ```
-            Colleagues who open the app will never see these keys.
             """
         )
     st.stop()
