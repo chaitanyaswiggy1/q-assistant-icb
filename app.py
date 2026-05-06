@@ -1,16 +1,16 @@
 """
 Q — Virtual Dining Assistant for ICB
-Streamlit Chat Application — Portkey + company AI providers
+Streamlit Chat Application powered by Google Gemini (free tier)
 
 Run locally:   streamlit run app.py
-Deploy:        share.streamlit.io → add PORTKEY_API_KEY as secret
+Deploy:        share.streamlit.io → add GOOGLE_API_KEY as secret
+               Free key: aistudio.google.com → Get API Key (no billing needed)
 """
 
 import os
 from typing import Optional
 import streamlit as st
-from openai import OpenAI
-from portkey_ai import createHeaders, PORTKEY_GATEWAY_URL
+import google.generativeai as genai
 
 from menu_loader import load_menu
 from system_prompt import build_system_prompt
@@ -48,11 +48,8 @@ st.markdown(
 MENU_PATH     = os.path.join(os.path.dirname(__file__), "menu.json")
 ANALYTICS_CSV = os.path.join(os.path.dirname(__file__), "menu_analytics.csv")
 RX_NAME       = "ICB"
-# Configurable via Streamlit secrets — change without redeploying
-PROVIDER_SLUG = st.secrets.get("PORTKEY_PROVIDER", os.environ.get("PORTKEY_PROVIDER", "night-ptu-gpt-4o"))
-MODEL         = st.secrets.get("MODEL", os.environ.get("MODEL", "gpt-4o"))
+MODEL         = "gemini-1.5-flash"   # free tier: 15 RPM, 1500 req/day
 TEMPERATURE   = 0.7
-MAX_TOKENS    = 600
 
 STARTER_SUGGESTIONS = [
     "What are the must-try dishes here?",
@@ -74,42 +71,23 @@ def get_menu_data(extra_scores: Optional[dict] = None):
     )
 
 
-def make_client(portkey_api_key: str) -> OpenAI:
-    """OpenAI-compatible client routed through Portkey → aistudio (Gemini)."""
-    return OpenAI(
-        api_key=portkey_api_key,
-        base_url=PORTKEY_GATEWAY_URL,
-        default_headers=createHeaders(
-            api_key=portkey_api_key,
-            virtual_key=PROVIDER_SLUG,
-            metadata={
-                "app": "Q-Assistant",
-                "restaurant": RX_NAME,
-                "_user": st.session_state.get("tester_name", "anonymous"),
-            },
-        ),
-    )
-
-
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### ⚙️ Configuration")
 
-    _secret_key = st.secrets.get("PORTKEY_API_KEY", "") or os.environ.get("PORTKEY_API_KEY", "")
+    _secret_key = st.secrets.get("GOOGLE_API_KEY", "") or os.environ.get("GOOGLE_API_KEY", "")
     if _secret_key:
         api_key_input = _secret_key
-        st.success("✅ Portkey key loaded", icon="🔑")
+        st.success("✅ API key loaded", icon="🔑")
     else:
         api_key_input = st.text_input(
-            "Portkey API Key",
+            "Google AI API Key",
             type="password",
-            placeholder="pk-...",
-            help="app.portkey.ai → Settings → API Keys",
+            placeholder="AIza...",
+            help="Free key from aistudio.google.com → Get API Key",
         )
 
     tester_name = st.text_input("Your name (optional)", placeholder="e.g. Rahul")
-    if tester_name:
-        st.session_state["tester_name"] = tester_name
 
     st.divider()
 
@@ -154,7 +132,7 @@ with st.sidebar:
         st.rerun()
 
     st.markdown(
-        "<div style='font-size:0.7rem;color:#666;margin-top:8px;'>Portkey → GPT-4o · Internal testing</div>",
+        "<div style='font-size:0.7rem;color:#666;margin-top:8px;'>Powered by Gemini · Internal testing</div>",
         unsafe_allow_html=True,
     )
 
@@ -173,17 +151,20 @@ st.markdown(
 
 # ── Credential check ──────────────────────────────────────────────────────────
 if not api_key_input:
-    st.info("👈 Enter your **Portkey API key** in the sidebar to start.", icon="🔑")
-    with st.expander("Where to find it"):
+    st.info("👈 Enter your **Google AI API key** in the sidebar to start.", icon="🔑")
+    with st.expander("How to get a free API key (30 seconds)"):
         st.markdown(
             """
-            1. Go to **[app.portkey.ai](https://app.portkey.ai)**
-            2. **Settings → API Keys** → copy your workspace key
+            1. Go to **[aistudio.google.com](https://aistudio.google.com)**
+            2. Click **"Get API Key"** → **"Create API key"**
+            3. Copy the key (starts with `AIza...`) → paste in sidebar
 
-            **For Streamlit Cloud** (colleagues need nothing):
+            **Free tier:** 15 requests/min · 1,500 requests/day — no billing needed.
+
+            **For Streamlit Cloud** (so colleagues need no key):
             App → Settings → Secrets → add:
             ```toml
-            PORTKEY_API_KEY = "pk-..."
+            GOOGLE_API_KEY = "AIza..."
             ```
             """
         )
@@ -224,35 +205,39 @@ if user_input:
     menu_data     = get_menu_data(popularity_scores)
     system_prompt = build_system_prompt(menu_data, rx_name=RX_NAME)
 
-    api_messages = [{"role": "system", "content": system_prompt}]
-    api_messages += [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
+    # Convert history to Gemini format (role: "user"/"model")
+    history = []
+    for m in st.session_state.messages[:-1]:
+        history.append({
+            "role": "model" if m["role"] == "assistant" else "user",
+            "parts": [m["content"]],
+        })
 
-    client = make_client(api_key_input)
+    genai.configure(api_key=api_key_input)
+    model = genai.GenerativeModel(
+        model_name=MODEL,
+        system_instruction=system_prompt,
+        generation_config=genai.GenerationConfig(temperature=TEMPERATURE),
+    )
+    chat = model.start_chat(history=history)
 
     with st.chat_message("assistant", avatar="🍽️"):
         placeholder   = st.empty()
         full_response = ""
 
         try:
-            stream = client.chat.completions.create(
-                model=MODEL,
-                messages=api_messages,
-                temperature=TEMPERATURE,
-                max_tokens=MAX_TOKENS,
-                stream=True,
-            )
-            for chunk in stream:
-                delta = chunk.choices[0].delta.content or ""
-                full_response += delta
+            response = chat.send_message(user_input, stream=True)
+            for chunk in response:
+                full_response += chunk.text
                 placeholder.markdown(full_response + "▌")
             placeholder.markdown(full_response)
 
         except Exception as e:
             err = str(e)
-            if "401" in err or "auth" in err.lower():
-                st.error("Invalid Portkey API key — check sidebar.")
-            elif "429" in err or "rate" in err.lower():
-                st.error("Rate limit hit. Wait a moment and try again.")
+            if "API_KEY" in err or "credentials" in err.lower() or "403" in err:
+                st.error("Invalid API key — check your Google AI key in the sidebar.")
+            elif "quota" in err.lower() or "429" in err:
+                st.error("Rate limit hit. Wait a moment and try again (free tier: 15 req/min).")
             else:
                 st.error(f"Something went wrong: {e}")
             st.session_state.messages.pop()
