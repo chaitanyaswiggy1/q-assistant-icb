@@ -1,29 +1,46 @@
 """
-Q Builder — ICB Dining Assistant (Internal Tool)
-Menu, analytics & prompts are pre-loaded. Team only needs the Portkey API key.
+Q Builder — ICB Dining Assistant
+Dual-mode: Snowflake Streamlit in Snowflake (SiS) and local/Streamlit Cloud.
 
-Run locally:   streamlit run q_builder.py
-Deploy:        share.streamlit.io → add PORTKEY_API_KEY as secret
+  SiS:   data from @Q_ASSISTANT_STAGE, API key from Snowflake Secret 'portkey_key'
+  Local: data from ~/Downloads or project dir, API key from st.secrets / env var
 """
 
 import json
 import os
 import csv
+import tempfile
 from collections import defaultdict
-from typing import Optional
 
+import requests
 import streamlit as st
-from portkey_ai import Portkey
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
-BASE_DIR      = os.path.dirname(__file__)
+# ── SiS runtime detection ─────────────────────────────────────────────────────
+try:
+    from snowflake.snowpark.context import get_active_session
+    import _snowflake
+    _SESSION = get_active_session()
+    _SIS = True
+except Exception:
+    _SESSION = None
+    _SIS = False
 
-# Default data files — fall back to bundled copies if Downloads not present
-_DOWNLOADS    = os.path.expanduser("~/Downloads")
-MENU_PATH     = (p if os.path.exists(p := os.path.join(_DOWNLOADS, "ICB Menu.json"))
-                 else os.path.join(BASE_DIR, "menu.json"))
-ANALYTICS_PATH = (p if os.path.exists(p := os.path.join(_DOWNLOADS, "ICB_1010981_item_analytics_60days.csv"))
-                  else os.path.join(BASE_DIR, "menu_analytics.csv"))
+# ── Stage paths (SiS) / local file paths (fallback) ──────────────────────────
+# SiS: files live in the app's ROOT_LOCATION stage
+STAGE_MENU = "@Q_ASSISTANT_STAGE/ICB_Menu.json"
+STAGE_ANLT = "@Q_ASSISTANT_STAGE/ICB_analytics.csv"
+
+# Local fallback: ~/Downloads first, then project dir
+_DOWNLOADS = os.path.expanduser("~/Downloads")
+try:
+    _BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    _BASE_DIR = "/tmp"
+
+LOCAL_MENU = (p if os.path.exists(p := os.path.join(_DOWNLOADS, "ICB Menu.json"))
+              else os.path.join(_BASE_DIR, "menu.json"))
+LOCAL_ANLT = (p if os.path.exists(p := os.path.join(_DOWNLOADS, "ICB_1010981_item_analytics_60days.csv"))
+              else os.path.join(_BASE_DIR, "menu_analytics.csv"))
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -362,7 +379,6 @@ If uncertain: say so honestly. Trust is always more important than sounding conf
 """
 
 # ── Model aliases from claude-poc collection ──────────────────────────────────
-# Keys = alias passed as `model` to Portkey; Values = display label
 MODEL_ALIASES = {
     # ── GPT (Azure Dev) ────────────────────────────────────────────────────────
     "gpt-4.1-mini/2025-01-01-preview":   "GPT-4.1 Mini  (Azure · recommended)",
@@ -405,34 +421,52 @@ def _pop_tag(score: int) -> str:
     if score >= 300: return " ★"
     return ""
 
-# ── Load bundled analytics CSV ────────────────────────────────────────────────
-@st.cache_resource
+# ── Load analytics (stage in SiS, local file otherwise) ──────────────────────
+@st.cache_data(show_spinner=False)
 def load_bundled_analytics():
     pop, co = {}, {}
-    if not os.path.exists(ANALYTICS_PATH):
-        return pop, co
-    with open(ANALYTICS_PATH, newline="", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            item_id = str(row.get("Item ID", "")).strip()
-            name    = str(row.get("Item Name", "")).strip()
-            times   = str(row.get("No. of Times Ordered", "0")).strip()
-            co_item = str(row.get("Most Co-Ordered With", "")).strip()
-            try:
-                pop[item_id] = int(times)
-            except ValueError:
-                pass
-            if name and co_item and co_item.lower() != "nan":
-                co[name] = co_item
+    try:
+        if _SIS:
+            tmp = tempfile.mkdtemp()
+            _SESSION.file.get(STAGE_ANLT, tmp)
+            local = os.path.join(tmp, os.path.basename(STAGE_ANLT))
+        else:
+            local = LOCAL_ANLT
+        if not os.path.exists(local):
+            return pop, co
+        with open(local, newline="", encoding="utf-8-sig") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                item_id = str(row.get("Item ID", "")).strip()
+                name    = str(row.get("Item Name", "")).strip()
+                times   = str(row.get("No. of Times Ordered", "0")).strip()
+                co_item = str(row.get("Most Co-Ordered With", "")).strip()
+                try:
+                    pop[item_id] = int(times)
+                except ValueError:
+                    pass
+                if name and co_item and co_item.lower() != "nan":
+                    co[name] = co_item
+    except Exception:
+        pass
     return pop, co
 
-# ── Load bundled menu JSON ────────────────────────────────────────────────────
-@st.cache_resource
+# ── Load menu JSON (stage in SiS, local file otherwise) ──────────────────────
+@st.cache_data(show_spinner=False)
 def load_bundled_menu():
-    if not os.path.exists(MENU_PATH):
+    try:
+        if _SIS:
+            tmp = tempfile.mkdtemp()
+            _SESSION.file.get(STAGE_MENU, tmp)
+            local = os.path.join(tmp, os.path.basename(STAGE_MENU))
+        else:
+            local = LOCAL_MENU
+        if not os.path.exists(local):
+            return None
+        with open(local, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
         return None
-    with open(MENU_PATH, "r") as f:
-        return json.load(f)
 
 # ── Parse menu JSON → text ─────────────────────────────────────────────────────
 def parse_menu(raw_json: dict, pop: dict, co: dict) -> tuple[str, str]:
@@ -443,7 +477,6 @@ def parse_menu(raw_json: dict, pop: dict, co: dict) -> tuple[str, str]:
     for it in raw_items:
         if not it.get("enable") or not it.get("in_stock"):
             continue
-        ca = it.get("catalog_attributes") or {}
         items.append({
             "id":         it["id"],
             "name":       it["name"],
@@ -494,7 +527,6 @@ def parse_menu(raw_json: dict, pop: dict, co: dict) -> tuple[str, str]:
 
 # ── Build system prompt ────────────────────────────────────────────────────────
 def build_system_prompt(rx_name, system_p, parser_p, menu_text, popular_text):
-    # Fill known placeholders; leave any unknown ones as-is
     class _Default(dict):
         def __missing__(self, key):
             return f"{{{key}}}"
@@ -506,8 +538,8 @@ def build_system_prompt(rx_name, system_p, parser_p, menu_text, popular_text):
             analytics_data = popular_text or "Not available",
             web_signals    = popular_text or "Not available",
             category       = "Bar & Restaurant",
-            cuisines     = "Multi-Cuisine · Craft Beer · Cocktails",
-            rating_text  = "4.2/5",
+            cuisines       = "Multi-Cuisine · Craft Beer · Cocktails",
+            rating_text    = "4.2/5",
             review_summary = "Known for craft beer, inventive cocktails, and a diverse food menu",
             dietary_text   = "Veg and Non-Veg options available",
             discounts_text = "Check menu for current offers",
@@ -522,23 +554,60 @@ def build_system_prompt(rx_name, system_p, parser_p, menu_text, popular_text):
 </menu_parsing_rules>
 """
 
+# ── Portkey streaming via REST (works in SiS and locally) ─────────────────────
+def _stream_portkey(api_key: str, model: str, messages: list, temperature: float = 0.7):
+    """Yield text chunks from Portkey's streaming chat completions API."""
+    resp = requests.post(
+        "https://api.portkey.ai/v1/chat/completions",
+        headers={
+            "x-portkey-api-key": api_key,
+            "Content-Type": "application/json",
+        },
+        json={"model": model, "messages": messages, "temperature": temperature, "stream": True},
+        stream=True,
+        timeout=60,
+    )
+    resp.raise_for_status()
+    for raw in resp.iter_lines():
+        if not raw:
+            continue
+        line = raw.decode("utf-8") if isinstance(raw, bytes) else raw
+        if not line.startswith("data: "):
+            continue
+        payload = line[6:].strip()
+        if payload == "[DONE]":
+            break
+        try:
+            chunk = json.loads(payload)
+            delta = (chunk["choices"][0]["delta"].get("content") or "") if chunk.get("choices") else ""
+            if delta:
+                yield delta
+        except (json.JSONDecodeError, KeyError, IndexError):
+            pass
+
 # ── Load bundled data once ────────────────────────────────────────────────────
-bundled_menu      = load_bundled_menu()
+bundled_menu            = load_bundled_menu()
 bundled_pop, bundled_co = load_bundled_analytics()
 
-# ── API key from secrets ───────────────────────────────────────────────────────
+# ── API key ────────────────────────────────────────────────────────────────────
 _secret_key = ""
-try:
-    _secret_key = st.secrets.get("PORTKEY_API_KEY", "") or os.environ.get("PORTKEY_API_KEY", "")
-except Exception:
-    _secret_key = os.environ.get("PORTKEY_API_KEY", "")
+if _SIS:
+    try:
+        _secret_key = _snowflake.get_generic_secret_string("portkey_key")
+    except Exception:
+        pass
+else:
+    try:
+        _secret_key = st.secrets.get("PORTKEY_API_KEY", "") or os.environ.get("PORTKEY_API_KEY", "")
+    except Exception:
+        _secret_key = os.environ.get("PORTKEY_API_KEY", "")
 
 # ── Session state ──────────────────────────────────────────────────────────────
-if "messages"         not in st.session_state: st.session_state.messages         = []
-if "system_prompt"    not in st.session_state: st.session_state.system_prompt    = None
-if "q_ready"          not in st.session_state: st.session_state.q_ready          = False
-if "model_alias"      not in st.session_state: st.session_state.model_alias      = DEFAULT_MODEL
-if "pending_message"  not in st.session_state: st.session_state.pending_message  = None
+if "messages"        not in st.session_state: st.session_state.messages        = []
+if "system_prompt"   not in st.session_state: st.session_state.system_prompt   = None
+if "q_ready"         not in st.session_state: st.session_state.q_ready         = False
+if "model_alias"     not in st.session_state: st.session_state.model_alias     = DEFAULT_MODEL
+if "pending_message" not in st.session_state: st.session_state.pending_message = None
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SIDEBAR — Config
@@ -609,7 +678,7 @@ with st.sidebar:
     st.divider()
 
     st.markdown("**④ Analytics Data Sheet**")
-    if os.path.exists(ANALYTICS_PATH):
+    if bundled_pop:
         st.success(f"Pre-loaded: ICB analytics · {len(bundled_pop)} items", icon="📊")
     data_override = st.file_uploader("Override with updated CSV/Excel",
                                       type=["csv","xlsx"], key="data_ovr")
@@ -624,8 +693,9 @@ with st.sidebar:
         st.session_state.messages = []
         st.rerun()
 
-    st.markdown("<div style='font-size:0.68rem;color:#666;margin-top:6px;'>"
-                "Powered by Portkey · Internal tool · ICB 2026</div>",
+    env_label = "❄️ Snowflake" if _SIS else "☁️ Local"
+    st.markdown(f"<div style='font-size:0.68rem;color:#666;margin-top:6px;'>"
+                f"Powered by Portkey · {env_label} · ICB 2026</div>",
                 unsafe_allow_html=True)
 
 
@@ -638,7 +708,7 @@ st.markdown("""
     <p>Independence Craft Brewery · Bengaluru</p>
 </div>""", unsafe_allow_html=True)
 
-# ── Auto-build on first load if bundled data + API key ready ──────────────────
+# ── Analytics override loader ──────────────────────────────────────────────────
 def _load_analytics_override(data_override):
     import pandas as pd
     data_override.seek(0)
@@ -654,6 +724,7 @@ def _load_analytics_override(data_override):
            if co_col and name_col else {})
     return pop, co
 
+# ── Auto-build on first load if data + API key ready ──────────────────────────
 if not st.session_state.q_ready and bundled_menu and portkey_api_key and not build_clicked:
     with st.spinner("Loading Q with ICB menu..."):
         try:
@@ -703,10 +774,10 @@ if not st.session_state.q_ready:
     st.info("Enter your **Portkey API key** in the sidebar — Q will load automatically.", icon="🔑")
     st.stop()
 
-# ── Chat input (pinned to page bottom; value captured before rendering history) ─
+# ── Chat input (pinned to page bottom) ────────────────────────────────────────
 user_input = st.chat_input("Ask Q about the menu, dishes, drinks…")
 
-# ── Drain pending message from suggestion buttons ──────────────────────────────
+# ── Drain pending message from suggestion buttons ─────────────────────────────
 if not user_input and st.session_state.pending_message:
     user_input = st.session_state.pending_message
     st.session_state.pending_message = None
@@ -745,21 +816,24 @@ if user_input:
         api_messages.append({"role": m["role"], "content": m["content"]})
     api_messages.append({"role": "user", "content": user_input})
 
-    client = Portkey(api_key=portkey_api_key)
-
     with st.chat_message("assistant", avatar="🍽️"):
         placeholder = st.empty()
         full_response = ""
         try:
-            stream = client.chat.completions.create(
-                model=st.session_state.model_alias,
-                messages=api_messages, temperature=0.7, stream=True,
-            )
-            for chunk in stream:
-                delta = (chunk.choices[0].delta.content or "") if chunk.choices else ""
+            for delta in _stream_portkey(portkey_api_key, st.session_state.model_alias, api_messages):
                 full_response += delta
                 placeholder.markdown(full_response + "▌")
             placeholder.markdown(full_response)
+        except requests.HTTPError as e:
+            code = e.response.status_code if e.response is not None else 0
+            if code == 401:
+                st.error("Invalid Portkey API key.")
+            elif code == 429:
+                st.error("Rate limit hit — wait a moment and retry.")
+            else:
+                st.error(f"API error {code}: {e}")
+            st.session_state.messages.pop()
+            st.stop()
         except Exception as e:
             err = str(e)
             if "401" in err or "authentication" in err.lower():
