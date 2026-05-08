@@ -17,8 +17,13 @@ from portkey_ai import Portkey
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 BASE_DIR      = os.path.dirname(__file__)
-MENU_PATH     = os.path.join(BASE_DIR, "menu.json")
-ANALYTICS_PATH = os.path.join(BASE_DIR, "menu_analytics.csv")
+
+# Default data files — fall back to bundled copies if Downloads not present
+_DOWNLOADS    = os.path.expanduser("~/Downloads")
+MENU_PATH     = (p if os.path.exists(p := os.path.join(_DOWNLOADS, "ICB Menu.json"))
+                 else os.path.join(BASE_DIR, "menu.json"))
+ANALYTICS_PATH = (p if os.path.exists(p := os.path.join(_DOWNLOADS, "ICB_1010981_item_analytics_60days.csv"))
+                  else os.path.join(BASE_DIR, "menu_analytics.csv"))
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
