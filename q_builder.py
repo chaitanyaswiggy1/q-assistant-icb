@@ -539,14 +539,22 @@ with st.sidebar:
     st.divider()
 
     st.markdown("**② Parser Prompt**")
-    parser_prompt = st.text_area("Parser", value=PARSER_PROMPT, height=160,
-                                  label_visibility="collapsed")
+    parser_prompt = st.text_area(
+        "Parser", value=PARSER_PROMPT,
+        height=max(200, PARSER_PROMPT.count("\n") * 21 + 40),
+        label_visibility="collapsed",
+    )
+    st.caption(f"{len(parser_prompt):,} chars · {parser_prompt.count(chr(10))+1} lines")
 
     st.divider()
 
     st.markdown("**③ System Prompt**")
-    system_prompt_text = st.text_area("System", value=SYSTEM_PROMPT, height=260,
-                                       label_visibility="collapsed")
+    system_prompt_text = st.text_area(
+        "System", value=SYSTEM_PROMPT,
+        height=max(300, SYSTEM_PROMPT.count("\n") * 21 + 40),
+        label_visibility="collapsed",
+    )
+    st.caption(f"{len(system_prompt_text):,} chars · {system_prompt_text.count(chr(10))+1} lines")
 
     st.divider()
 
@@ -607,6 +615,8 @@ if not st.session_state.q_ready and bundled_menu and portkey_api_key and not bui
                 rx_name, system_prompt_text, parser_prompt, menu_text, popular_text
             )
             st.session_state.q_ready = True
+            prompt_chars = len(st.session_state.system_prompt)
+            st.toast(f"Q loaded · system prompt: {prompt_chars:,} chars", icon="🚀")
         except Exception as e:
             st.warning(f"Auto-load failed: {e} — click Build Q manually.")
 
@@ -629,7 +639,12 @@ if build_clicked:
                 )
                 st.session_state.q_ready = True
                 st.session_state.messages = []
-                st.success(f"Q ready · {menu_text.count('•')} items · {len(pop)} with order data", icon="🚀")
+                prompt_chars = len(st.session_state.system_prompt)
+                st.success(
+                    f"Q ready · {menu_text.count('•')} items · {len(pop)} with order data · "
+                    f"system prompt: {prompt_chars:,} chars",
+                    icon="🚀",
+                )
             except Exception as e:
                 st.error(f"Build failed: {e}")
 
